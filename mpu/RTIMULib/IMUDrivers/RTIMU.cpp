@@ -27,7 +27,7 @@
 #include "RTFusionRTQF.h"
 
 #include "RTIMUNull.h"
-//#include "RTIMUMPU9150.h"
+#include "RTIMUMPU9150.h"
 #include "RTIMUMPU9250.h"
 /*#include "RTIMUGD20HM303D.h"
 #include "RTIMUGD20M303DLHC.h"
@@ -90,9 +90,9 @@ float RTIMU::m_axisRotation[RTIMU_AXIS_ROTATION_COUNT][9] = {
 RTIMU *RTIMU::createIMU(RTIMUSettings *settings)
 {
     switch (settings->m_imuType) {
-    /*case RTIMU_TYPE_MPU9150:
+    case RTIMU_TYPE_MPU9150:
         return new RTIMUMPU9150(settings);
-
+/*
     case RTIMU_TYPE_GD20HM303D:
         return new RTIMUGD20HM303D(settings);
 

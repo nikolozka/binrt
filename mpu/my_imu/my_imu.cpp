@@ -63,7 +63,7 @@ int main()
 
     //  this is a convenient place to change fusion parameters
 
-    imu->setSlerpPower(0.0);
+    imu->setSlerpPower(0.5);
     imu->setGyroEnable(true);
     imu->setAccelEnable(true);
     imu->setCompassEnable(false);

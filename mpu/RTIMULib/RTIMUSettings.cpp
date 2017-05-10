@@ -24,7 +24,7 @@
 //  The MPU-9250 and SPI driver code is based on code generously supplied by
 //  staslock@gmail.com (www.clickdrive.io)
 
-
+//#include <iostream>
 #include "RTIMUSettings.h"
 #include "IMUDrivers/RTIMUMPU9150.h"
 #include "IMUDrivers/RTIMUMPU9250.h"
@@ -343,7 +343,7 @@ bool RTIMUSettings::discoverIMU(int& imuType, bool& busIsI2C, unsigned char& sla
 
     //  nothing found on I2C bus - try SPI instead
 
-    m_busIsI2C = false;
+    /*m_busIsI2C = false;
     m_SPIBus = 0;
 
     m_SPISelect = 0;
@@ -374,7 +374,7 @@ bool RTIMUSettings::discoverIMU(int& imuType, bool& busIsI2C, unsigned char& sla
             }
         }
         HALClose();
-    }
+    }*/
 
     HAL_ERROR("No IMU detected\n");
     return false;
@@ -753,7 +753,7 @@ bool RTIMUSettings::loadSettings()
             m_gyroBias.setZ(ftemp);
 
         //  MPU9150 settings
-/*
+
         } else if (strcmp(key, RTIMULIB_MPU9150_GYROACCEL_SAMPLERATE) == 0) {
             m_MPU9150GyroAccelSampleRate = atoi(val);
         } else if (strcmp(key, RTIMULIB_MPU9150_COMPASS_SAMPLERATE) == 0) {
@@ -764,7 +764,7 @@ bool RTIMUSettings::loadSettings()
             m_MPU9150GyroFsr = atoi(val);
         } else if (strcmp(key, RTIMULIB_MPU9150_ACCEL_FSR) == 0) {
             m_MPU9150AccelFsr = atoi(val);
-*/
+
         //  MPU9250 settings
 
         } else if (strcmp(key, RTIMULIB_MPU9250_GYROACCEL_SAMPLERATE) == 0) {
